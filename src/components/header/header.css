@@ -1,0 +1,9 @@
+.root {
+  display: flex;
+  background-color: aquamarine;
+  height: 38px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 6px;
+}
