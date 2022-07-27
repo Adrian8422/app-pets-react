@@ -1,4 +1,6 @@
-const API_BASE_URL = "http://localhost:3002";
+// const API_BASE_URL = "http://localhost:3002";
+const API_BASE_URL = "https://current-desafio-m-7.herokuapp.com";
+// https://current-desafio-m-7.herokuapp.com
 
 //// FETCH DE RESULTS CLOSE TO ME
 export async function getLatAndLng(data) {
