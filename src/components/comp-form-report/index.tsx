@@ -1,6 +1,6 @@
 import React from "react";
 import { MapboxComp } from "lib/mapBox";
-import { DropzoneComp } from "lib/dropzone";
+import { DropzoneComp } from "lib/react-dropzone";
 import { useCallback } from "react";
 import { useState } from "react";
 import {
