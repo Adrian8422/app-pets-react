@@ -1,28 +1,36 @@
+import { getEmailForSent } from "hooks";
 import React from "react";
+import { useSentEmail } from "lib/api";
 // import css from "./reportInfo.css";
 import css from "./infoReport.css";
+import { InputCompUI } from "ui/input-text";
+import { ButtonComp } from "ui/button";
+
 type PropsReportInfo = {
-  getData: (params: { name; cellphone; watching }) => any;
+  getData?: (params: { name; cellphone; watching }) => any;
 };
 function ReportInfoComp(props: PropsReportInfo) {
+  const getEmailReal = getEmailForSent();
   const handleSubmit = (e) => {
     e.preventDefault();
 
     const name = e.target.nombre.value;
     const cellphone = e.target.cellphone.value;
     const watching = e.target.watching.value;
-    props.getData({ name, cellphone, watching });
-    console.log("name", name);
-    console.log("cellphone", cellphone);
-    console.log("watch", watching);
+    if (!name && !cellphone && !watching) {
+      return alert("faltan datos");
+    } else {
+      useSentEmail(getEmailReal, name, watching, cellphone);
+      alert("reporte enviado");
+    }
   };
   return (
     <form onSubmit={handleSubmit} className={css.reportCard}>
       <h3>Ingresa datos del reporte</h3>
-      <input type="text" name="watching" placeholder="Donde lo viste" />
-      <input type="text" name="nombre" placeholder="Tu nombre" />
-      <input type="cellphone" name="cellphone" placeholder="Cellphone" />
-      <button>Enviar</button>
+      <InputCompUI type="text" name="watching" placeholder="Donde lo viste" />
+      <InputCompUI type="text" name="nombre" placeholder="Tu nombre" />
+      <InputCompUI type="cellphone" name="cellphone" placeholder="Cellphone" />
+      <ButtonComp>Enviar</ButtonComp>
     </form>
   );
 }

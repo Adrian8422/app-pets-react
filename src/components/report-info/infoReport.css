@@ -6,8 +6,9 @@
   align-items: center;
   text-align: center;
   box-shadow: grey 2px 2px 4px 1px;
-  width: 202px;
+  width: 238px;
   height: 294px;
   background-color: springgreen;
   padding: 12px;
+  margin: 0 auto;
 }

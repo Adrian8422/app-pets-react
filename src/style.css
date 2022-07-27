@@ -1,3 +1,20 @@
 * {
   box-sizing: border-box;
 }
+body {
+  background-image: url("./assets/cs_fondo_pets.jpg");
+  display: flex;
+  margin: 0 auto;
+  font-family: "Mochiy Pop One", sans-serif;
+}
+.root {
+  width: 905px;
+  margin: 0 auto;
+  height: 100%;
+  background-color: #2e8b57e8;
+  border-radius: 10px;
+  box-shadow: black 2px 3px 7px 2px;
+}
+.mapboxgl-ctrl-attrib-inner {
+  display: none;
+}

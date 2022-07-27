@@ -2,6 +2,7 @@ import { setValueLatLng, useMeLatLng } from "hooks";
 import React, { useState } from "react";
 import { useRecoilState } from "recoil";
 import { useNavigate } from "react-router-dom";
+import css from "./get-ubication.css";
 
 function GetUbication() {
   const navigate = useNavigate();
@@ -33,13 +34,15 @@ function GetUbication() {
 
   return (
     <div>
-      <div>
+      <div className={css.containerPage}>
         <h1>Mascotas perdidas cerca tuyo</h1>
         <h2>
           Para ver las mascotas reportadas cerca tuyo necesitamos permiso para
           conocer tu ubicación.
         </h2>
-        <button onClick={handleUbication}>comenzar</button>
+        <button className={css.button} onClick={handleUbication}>
+          comenzar
+        </button>
       </div>
     </div>
   );

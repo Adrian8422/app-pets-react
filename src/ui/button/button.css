@@ -1,0 +1,18 @@
+.button {
+  min-width: 169px;
+  height: 28px;
+  border-radius: 7px;
+  border: transparent;
+  font-family: "Mochiy Pop One";
+  box-shadow: 5px 3px 6px 1px #162626;
+  background-color: #cb4b4bc2;
+}
+.button2 {
+  min-width: 169px;
+  height: 28px;
+  border-radius: 7px;
+  border: transparent;
+  font-family: "Mochiy Pop One";
+  box-shadow: 5px 3px 6px 1px #162626;
+  background-color: #157b61c2;
+}

@@ -7,12 +7,14 @@
 }
 #navMenu > span:not(:last-child) {
   margin-bottom: 7px;
+  filter: drop-shadow(2px 0px 1px #000);
 }
 
 #navMenu,
 #navMenu > span {
   width: 28px;
   transition: all 0.4s ease-in-out;
+  filter: drop-shadow(1px 1px 3px #000);
 }
 
 #navMenu.active {

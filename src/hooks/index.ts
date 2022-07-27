@@ -1,3 +1,10 @@
+import {
+  getEntriLogin,
+  getLatAndLng,
+  getMeReports,
+  setDataSignUp,
+} from "lib/api";
+import { recoilPersist } from "recoil-persist";
 import { useEffect } from "react";
 import {
   atom,
@@ -5,8 +12,25 @@ import {
   useRecoilValue,
   useSetRecoilState,
   SetRecoilState,
+  useRecoilState,
+  SetterOrUpdater,
+  RecoilState,
 } from "recoil";
-const API_BASE_URL = "http://localhost:3002";
+
+const { persistAtom } = recoilPersist({
+  key: "data_user", // this key is using to store data in local storage
+  storage: localStorage, // configurate which stroage will be used to store the data
+});
+
+///// State current pages
+/// Hook used to redirect to the selected page
+
+const proxPage = atom({
+  key: "Proxpage",
+  default: "",
+});
+export const useSetPageState = () => useRecoilState(proxPage);
+export const useGetStatePage = () => useRecoilValue(proxPage);
 
 //// State Header Menu
 
@@ -15,9 +39,8 @@ const stateHeader = atom({
   default: "",
 });
 
-console.log("stateheader", stateHeader);
-
 //// Hook Heade Menu
+export const useSetWindowHeaderState = () => useRecoilState(stateHeader);
 export function useHeaderState(value) {
   const setValueInRecoil = useSetRecoilState(stateHeader);
   useEffect(() => {
@@ -31,18 +54,18 @@ export function useBurgerActive() {
 }
 
 /// Atom MeLatLng
-const LatLng = atom({
+const userLatLng = atom({
   key: "LatLng",
   default: "",
 });
 export function setValueLatLng(params) {
-  const setValueInRecoil = useSetRecoilState(LatLng);
+  const setValueInRecoil = useSetRecoilState(userLatLng);
   useEffect(() => {
     setValueInRecoil(params);
   }, [params]);
 }
 export function useMeLatLng() {
-  const response = useRecoilValue(LatLng);
+  const response = useRecoilValue(userLatLng);
   return response;
 }
 
@@ -50,27 +73,15 @@ export function useMeLatLng() {
 const latLng = atom({
   key: "lat&lng",
   default: "",
+  effects_UNSTABLE: [persistAtom],
 });
 const getReports = selector({
   key: "report",
   get: async ({ get }) => {
     const data = get(latLng);
     if (data) {
-      const res = await fetch(
-        API_BASE_URL +
-          "/reports-close-to?lat=" +
-          data["lat"] +
-          "&lng=" +
-          data["lng"],
-        {
-          headers: {
-            "content-type": "application/json",
-          },
-        }
-      );
-      const json = await res.json();
-      console.log(json);
-      return json;
+      const results = getLatAndLng(data);
+      return results;
     } else {
       return [];
     }
@@ -83,11 +94,10 @@ export function useSetAlgolia() {
   useEffect(() => {
     setDataLatLng(datos);
   }, [datos]);
-  // console.log("datos en hook", datos["lat"]);
   return response;
 }
 
-///Hook getMeEmail user
+///Hook save user email
 
 const emailUser = atom({
   key: "email",
@@ -105,26 +115,102 @@ export function getEmailForSent() {
   return response;
 }
 
-////Hook sent email for report info
-const setEmail = atom({
-  key: "info",
-  default: "",
+////Hook signUp
+
+const signUpData: RecoilState<{ [key: string]: string }> = atom({
+  key: "sigUpData",
+  default: {
+    nombre: null,
+    email: null,
+    password: null,
+  },
+  effects_UNSTABLE: [persistAtom],
 });
-const sentEmail = selector({
-  key: "sentMessage",
+
+export const useSetDataSignUp: any = () => useSetRecoilState(signUpData);
+export const getDataSignUp = () => useRecoilValue(signUpData);
+
+/// Hook get token
+const dataSignin: RecoilState<{ [key: string]: string }> = atom({
+  key: "dataSignin",
+  default: {
+    email: "",
+    id: "",
+    password: "",
+    user_id: "",
+    token: "",
+  },
+  effects_UNSTABLE: [persistAtom],
+});
+const token = selector({
+  key: "token",
   get: ({ get }) => {
-    const data = get(setEmail);
-    console.log("dato del selector", data);
+    const data = get(dataSignin);
+    const token = data.token;
+    if (token) {
+      return token;
+    } else {
+    }
   },
 });
-export function useSentEmail(dataMensaje, emailTambien) {
-  // const email = getEmailForSent();
-  console.log("dataInHook", dataMensaje, emailTambien);
-  const datos = (dataMensaje += emailTambien);
-  const saveInRecoilparaEnviarMsg = useSetRecoilState(datos);
-  const response = useRecoilValue(sentEmail);
-  useEffect(() => {
-    saveInRecoilparaEnviarMsg(dataMensaje);
-  });
-  return;
-}
+
+////Hook setter signIn data user
+
+export const useSetInDataSignIn = () => useSetRecoilState(dataSignin);
+export const useGetDataUser = () => useRecoilValue(dataSignin);
+export const useSetChangesDataUser = () => useRecoilState(dataSignin);
+
+/// Seter User active or nou
+export const useSetActiveUser = () => useSetRecoilState(dataSignin);
+export const useGetActiveUser = () => useRecoilValue(dataSignin);
+
+//// hook getToken
+export const useGetToken = () => useRecoilValue(token);
+
+//// hook update me data
+
+export const useUpdateMeData = () => useRecoilState(dataSignin);
+
+////ATOM & HOOK ME REPORTS
+const mePets = atom({
+  key: "reportsUser",
+  default: [],
+  effects_UNSTABLE: [persistAtom],
+});
+
+export const useReportesDelUser = () => useRecoilValue(mePets);
+export const useSetReportsUser = () => useRecoilState(mePets);
+export const useSeterReportUser = () => useSetRecoilState(mePets);
+
+///// Set img in Dropzone
+
+const dropzone = atom({
+  key: "dropzone_img",
+  default: {},
+});
+export const useImgRecoilDropzone = () => useRecoilValue(dropzone);
+export const useSetImgRecoilDrop = () => useRecoilState(dropzone);
+export const useSetterImg = () => useSetRecoilState(dropzone);
+
+/// Set coords reports atom&Hook
+const mapboxCoords: RecoilState<{ [key: string]: string }> = atom({
+  key: "coords_rep",
+  default: {
+    lat: null,
+    lng: null,
+    location: null,
+  },
+});
+export const useMapboxCoords = () => useRecoilValue(mapboxCoords);
+export const useSetCoordsRecoil = () => useRecoilState(mapboxCoords);
+export const useSetterCords = () => useSetRecoilState(mapboxCoords);
+
+//// me current report
+const reporte = atom({
+  key: "reporteObj",
+  default: "",
+});
+
+export const useGetReport = () => useRecoilValue(reporte);
+export const useSetterReport = () => useSetRecoilState(reporte);
+export const useSetReport = () => useRecoilState(reporte);

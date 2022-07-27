@@ -11,6 +11,8 @@
   justify-content: space-evenly;
   background: #8af1ff;
   transition: 0.5s;
+  border-radius: 22px;
+  box-shadow: 1px 3px 3px 3px black;
 }
 
 #root.active {

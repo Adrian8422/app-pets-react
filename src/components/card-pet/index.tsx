@@ -1,38 +1,82 @@
-import { getEmailForSent, useSentEmail, useSetEmail } from "hooks";
-import React, { useState } from "react";
+import {
+  getEmailForSent,
+  useReportesDelUser,
+  useSeterReportUser,
+  useSetReportsUser,
+  useGetToken,
+  useSetEmail,
+  useSetReport,
+  useSetterReport,
+} from "hooks";
+import React, { useEffect, useState } from "react";
 import css from "./cardPet.css";
 import { ReportInfoComp } from "components/report-info";
+import { deletedReport, getMeOneReport, getMeReports } from "lib/api";
+import { useNavigate } from "react-router-dom";
 
-////VER SI PUEDO USAR ESTA MISMA CARD PARA MOSTRAR MIS REPORTES REALIZADOS CUANDO YA TENGA EL LOGIIN Y TODO BIEN :D
 type PropsCard = {
   pictureURL: string;
   name: string;
   location: string;
-  emailUser: string;
+  emailUser?: string;
+  children: any;
+  id?: string;
 };
 
 function Card(props: PropsCard) {
+  const meReports = useReportesDelUser();
+  const navigate = useNavigate();
   const [report, setReport] = useState(false);
-  const [email, setEmail] = useState("");
+  const [email, setEmail] = useState({});
   const hookGetReport = useSetEmail(email);
-  const getEmailReal = getEmailForSent();
-  const [dataDelForm, setDataDelForm] = useState({});
-  const useEmail = useSentEmail(dataDelForm, getEmailReal);
+  const [reporte, setReportInRecoil] = useSetReport();
 
-  function getDataForm(data) {
-    setDataDelForm(data);
-  }
-
+  const token = useGetToken();
+  const [newAllReports, setNewAllReports] = useSetReportsUser();
   const reportInfo = () => {
-    setEmail(props.emailUser);
-    if (report == true) {
-      setReport(false);
-    } else if (report == false) {
-      setReport(true);
+    setEmail({ email: props.emailUser });
+    if (location.pathname == "/pets-around") {
+      if (report == true) {
+        setReport(false);
+      } else if (report == false) {
+        setReport(true);
+      }
     }
   };
-  console.log("email ya cocido", getEmailReal);
-  console.log("email ya message", useEmail);
+  const handleDeleted = (e) => {
+    const id = e.target.id;
+
+    const deleted = deletedReport(id, token);
+    if (deleted) {
+      getMeReports(token).then((data) => {
+        setTimeout(() => {
+          setNewAllReports(data);
+
+          if (setNewAllReports) {
+            alert("reporte borrado :D");
+            navigate("/me-reports");
+          }
+        }, 3000);
+      });
+    }
+  };
+
+  const updateClick = (e) => {
+    const id = e.target.id;
+
+    if (id) {
+      meReports.find((reporte) => {
+        if (reporte.id == id) {
+          setReportInRecoil(reporte);
+        }
+      });
+    }
+
+    navigate("/update-report/" + e.target.id);
+  };
+
+  const pageReportInfo = location.pathname == "/pets-around";
+
   return (
     <div>
       <div className={css.root}>
@@ -46,10 +90,40 @@ function Card(props: PropsCard) {
         <div>
           <h2>{props.name}</h2>
           <h3>{props.location}</h3>
-          <h3 onClick={reportInfo}>Reportar</h3>
+          {pageReportInfo ? (
+            <h3 className={css.subtitleReport} onClick={reportInfo}>
+              {props.children}
+            </h3>
+          ) : (
+            <div className={css.containerEdits}>
+              <h3
+                id={props.id}
+                onClick={handleDeleted}
+                style={{
+                  color: " red",
+                  fontSize: "17px",
+                  fontWeight: 200,
+                  filter: " drop-shadow(4px 3px 3px #a10d0d)",
+                }}
+              >
+                Deleted
+              </h3>
+              <img
+                id={props.id}
+                onClick={updateClick}
+                style={{
+                  width: "30px",
+                  height: "30px",
+                  filter: "drop-shadow(2px 6px 4px black)",
+                }}
+                src="./src/assets/pencil.png"
+                alt=""
+              />
+            </div>
+          )}
         </div>
       </div>
-      {report ? <ReportInfoComp getData={getDataForm} /> : null}
+      {report ? <ReportInfoComp /> : null}
     </div>
   );
 }

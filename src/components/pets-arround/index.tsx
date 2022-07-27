@@ -6,7 +6,7 @@ type PropsPetsArround = {
 
 function PetsArround(props: PropsPetsArround) {
   return (
-    <div>
+    <div style={{ marginTop: "60px" }}>
       {props.results ? (
         props.results.map((card) => (
           <Card
@@ -14,8 +14,8 @@ function PetsArround(props: PropsPetsArround) {
             name={card["name"]}
             location={card["location"]}
             pictureURL={card["pictureURL"]}
-            // reportar={"Reportar"}
             emailUser={card["emailUser"]}
+            children="reportar"
           />
         ))
       ) : (
