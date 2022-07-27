@@ -31,13 +31,21 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg)$/,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
     ],
   },
   resolve: {
     extensions: [".tsx", ".js", ".ts"],
     plugins: [
       new TsconfigPathsPlugin({
-        /* options: see below */
+        configFile: "./tsconfig.json",
       }),
     ],
   },
