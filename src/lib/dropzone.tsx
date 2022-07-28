@@ -13,6 +13,13 @@ type PropsDropzone = {
 };
 
 function DropzoneComp(props: PropsDropzone) {
+  const styleDropzoneImg: any = {
+    width: "106px",
+    borderRadius: "7px",
+    padding: "9px",
+    backgroundColor: " darkseagreen",
+    boxShadow: "2px 2px 5px 1px",
+  };
   const imagenDropzoneRecoil: any = useImgRecoilDropzone();
   const [files, setFiles] = useSetImgRecoilDrop();
 
@@ -37,7 +44,7 @@ function DropzoneComp(props: PropsDropzone) {
     <section className="container">
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
-        <p className={css.dropImg}>Clicka aquí para buscar imagen</p>
+        <p className={styleDropzoneImg}>Clicka aquí para buscar imagen</p>
       </div>
       <aside>
         <img style={{ width: "115px" }} src={imagenComp.imageURL} />

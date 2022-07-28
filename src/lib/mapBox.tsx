@@ -42,8 +42,31 @@ function MapboxComp() {
     });
   };
 
+  const mapboxStyleForm: any = {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  };
+  const buttonStyle: any = {
+    minWidth: "169px",
+    height: "28px",
+    borderRadius: "7px",
+    border: "transparent",
+    fontFamily: "Mochiy Pop One",
+    boxShadow: "5px 3px 6px 1px #162626",
+    backgroundColor: "#cb4b4bc2",
+  };
+  const inputStyle: any = {
+    height: "27px",
+    width: "197px",
+    borderRadius: "6px",
+    border: "transparent",
+    fontFamily: "Mochiy Pop One",
+    fontSize: "13px",
+  };
+
   return (
-    <div className={css.form}>
+    <div className={mapboxStyleForm}>
       <Map
         style="mapbox://styles/mapbox/streets-v9"
         containerStyle={{
@@ -56,14 +79,14 @@ function MapboxComp() {
       ></Map>
       <div>
         <input
-          className={css.input}
+          className={inputStyle}
           type="text"
           onChange={handleChange}
           onKeyDown={handleChange}
           value={query}
           placeholder="example: Ezeiza"
         />
-        <button className={css.button} onClick={setSearch}>
+        <button className={buttonStyle} onClick={setSearch}>
           Confirmar ubication
         </button>
       </div>
