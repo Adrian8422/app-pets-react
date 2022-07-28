@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SignUpComp } from "components/sign-up/signUp";
+import { SignUpComp } from "components/sign-up/SignUp";
 import { useGetDataUser } from "hooks";
 import { Link } from "react-router-dom";
 import css from "./signUp.css";

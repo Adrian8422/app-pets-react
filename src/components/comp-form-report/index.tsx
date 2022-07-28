@@ -12,8 +12,8 @@ import {
 import { createReport, getMeReports, updateReportInDB } from "lib/api";
 import { useNavigate, useParams } from "react-router-dom";
 import css from "./createAndUpdateReport.css";
-import { ButtonComp } from "ui/button";
-import { InputCompUI } from "ui/input-text";
+import { ButtonComp } from "ui/button/Index";
+import { InputCompUI } from "ui/input-text/Index";
 
 //// Componente apto para crear y para modificar reporte
 

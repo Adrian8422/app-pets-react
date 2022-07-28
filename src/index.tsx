@@ -3,7 +3,7 @@ import { RecoilRoot } from "recoil";
 import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import { AppRouter } from "routes";
-import { LoadingComp } from "components/loading";
+import { LoadingComp } from "components/loading/Index";
 const root = ReactDOM.createRoot(document.querySelector(".root"));
 <LoadingComp />;
 root.render(

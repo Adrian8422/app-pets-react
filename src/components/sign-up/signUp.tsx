@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { setDataSignUp } from "lib/api";
 import { getDataSignUp, useSetDataSignUp } from "hooks";
 import { useNavigate } from "react-router-dom";
-import { ButtonComp } from "ui/button";
+import { ButtonComp } from "ui/button/Index";
 import css from "./signUp.css";
-import { InputCompUI } from "ui/input-text";
+import { InputCompUI } from "ui/input-text/Index";
 
 function SignUpComp(props) {
   const navigate = useNavigate();

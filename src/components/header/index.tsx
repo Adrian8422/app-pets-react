@@ -1,6 +1,6 @@
 import React from "react";
-import { ButtonMenu } from "components/buttonMenu";
-import { Window } from "components/window";
+import { ButtonMenu } from "components/buttonMenu/Index";
+import { Window } from "components/window/Index";
 
 import css from "./header.css";
 import { useNavigate } from "react-router-dom";

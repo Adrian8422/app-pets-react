@@ -1,4 +1,4 @@
-import { SignInComp } from "components/sign-in/signIn";
+import { SignInComp } from "components/sign-in/SignIn";
 import React from "react";
 import { Link } from "react-router-dom";
 import css from "./signIn.css";

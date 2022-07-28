@@ -3,8 +3,8 @@ import React from "react";
 import { useSentEmail } from "lib/api";
 // import css from "./reportInfo.css";
 import css from "./infoReport.css";
-import { InputCompUI } from "ui/input-text";
-import { ButtonComp } from "ui/button";
+import { InputCompUI } from "ui/input-text/Index";
+import { ButtonComp } from "ui/button/Index";
 
 type PropsReportInfo = {
   getData?: (params: { name; cellphone; watching }) => any;

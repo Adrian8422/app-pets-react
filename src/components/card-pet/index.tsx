@@ -10,7 +10,7 @@ import {
 } from "hooks";
 import React, { useEffect, useState } from "react";
 import css from "./cardPet.css";
-import { ReportInfoComp } from "components/report-info";
+import { ReportInfoComp } from "components/report-info/Index";
 import { deletedReport, getMeOneReport, getMeReports } from "lib/api";
 import { useNavigate } from "react-router-dom";
 

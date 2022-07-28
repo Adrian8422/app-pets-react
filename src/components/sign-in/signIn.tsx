@@ -3,8 +3,8 @@ import { getEntriLogin } from "lib/api";
 import { useGetDataUser, useGetStatePage, useSetInDataSignIn } from "hooks";
 
 import css from "./signIn.css";
-import { ButtonComp } from "ui/button";
-import { InputCompUI } from "ui/input-text";
+import { ButtonComp } from "ui/button/Index";
+import { InputCompUI } from "ui/input-text/Index";
 import { useNavigate } from "react-router-dom";
 function SignInComp(props) {
   const navigate = useNavigate();

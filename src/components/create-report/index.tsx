@@ -1,4 +1,4 @@
-import { CreateAndUpdateReport } from "components/comp-form-report";
+import { CreateAndUpdateReport } from "components/comp-form-report/Index";
 import React from "react";
 
 function CreateReport() {

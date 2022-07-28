@@ -9,7 +9,7 @@ import {
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { ButtonComp } from "ui/button";
+import { ButtonComp } from "ui/button/Index";
 import css from "./meData.css";
 
 function MeDataComp() {

@@ -2,8 +2,8 @@ import { useUpdateMeData, useGetToken } from "hooks";
 import { updateMeDate } from "lib/api";
 import css from "./editMeComp.css";
 import React from "react";
-import { InputCompUI } from "ui/input-text";
-import { ButtonComp } from "ui/button";
+import { InputCompUI } from "ui/input-text/Index";
+import { ButtonComp } from "ui/button/Index";
 ButtonComp;
 InputCompUI;
 
