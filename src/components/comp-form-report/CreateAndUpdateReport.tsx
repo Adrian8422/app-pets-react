@@ -8,12 +8,12 @@ import {
   useGetToken,
   useImgRecoilDropzone,
   useMapboxCoords,
-} from "hooks";
+} from "hooks/atom";
 import { createReport, getMeReports, updateReportInDB } from "lib/api";
 import { useNavigate, useParams } from "react-router-dom";
 import css from "./createAndUpdateReport.css";
-import { ButtonComp } from "ui/button/Index";
-import { InputCompUI } from "ui/input-text/Index";
+import { ButtonComp } from "ui/button/Button";
+import { InputCompUI } from "ui/input-text/InputText";
 
 //// Componente apto para crear y para modificar reporte
 

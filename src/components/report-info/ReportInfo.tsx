@@ -1,10 +1,10 @@
-import { getEmailForSent } from "hooks";
+import { getEmailForSent } from "hooks/atom";
 import React from "react";
 import { useSentEmail } from "lib/api";
 // import css from "./reportInfo.css";
 import css from "./infoReport.css";
-import { InputCompUI } from "ui/input-text/Index";
-import { ButtonComp } from "ui/button/Index";
+import { InputCompUI } from "ui/input-text/InputText";
+import { ButtonComp } from "ui/button/Button";
 
 type PropsReportInfo = {
   getData?: (params: { name; cellphone; watching }) => any;

@@ -1,7 +1,7 @@
 import React from "react";
-import { MeReportsComp } from "components/me-reports/Index";
-import { useReportesDelUser, useMeLatLng } from "hooks";
-import { LoadingComp } from "components/loading/Index";
+import { MeReportsComp } from "components/me-reports/MeReports";
+import { useReportesDelUser, useMeLatLng } from "hooks/atom";
+import { LoadingComp } from "components/loading/Loading";
 import css from "./meReports.css";
 function MeReportsPage() {
   LoadingComp;

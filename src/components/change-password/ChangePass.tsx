@@ -1,9 +1,9 @@
-import { useGetToken } from "hooks";
+import { useGetToken } from "hooks/atom";
 import { updatePassword } from "lib/api";
 import css from "./changePass.css";
 import React from "react";
-import { ButtonComp } from "ui/button/Index";
-import { InputCompUI } from "ui/input-text/Index";
+import { ButtonComp } from "ui/button/Button";
+import { InputCompUI } from "ui/input-text/InputText";
 
 function ChangePasswordComp() {
   const token = useGetToken();

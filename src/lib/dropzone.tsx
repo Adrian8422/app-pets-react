@@ -3,7 +3,7 @@ import {
   useImgRecoilDropzone,
   useSetImgRecoilDrop,
   useSetterImg,
-} from "hooks";
+} from "hooks/atom";
 import React, { useState, useEffect } from "react";
 
 import { useDropzone } from "React-dropzone";

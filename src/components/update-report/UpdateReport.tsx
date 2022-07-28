@@ -1,5 +1,5 @@
-import { CreateAndUpdateReport } from "components/comp-form-report/Index";
-import { useGetReport, useGetToken, useImgRecoilDropzone } from "hooks";
+import { CreateAndUpdateReport } from "components/comp-form-report/CreateAndUpdateReport";
+import { useGetReport, useGetToken, useImgRecoilDropzone } from "hooks/atom";
 import { getMeOneReport } from "lib/api";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";

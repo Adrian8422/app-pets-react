@@ -1,5 +1,5 @@
 import React from "react";
-import { MeDataComp } from "components/me-data/Index";
+import { MeDataComp } from "components/me-data/MeData";
 import css from "./me.css";
 function MePage() {
   return (

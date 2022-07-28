@@ -1,5 +1,5 @@
 import React from "react";
-import { HeaderComp } from "components/header/Index";
+import { HeaderComp } from "components/header/Header";
 import { Outlet } from "react-router-dom";
 
 function Layout() {

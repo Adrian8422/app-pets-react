@@ -1,9 +1,9 @@
-import { useUpdateMeData, useGetToken } from "hooks";
+import { useUpdateMeData, useGetToken } from "hooks/atom";
 import { updateMeDate } from "lib/api";
 import css from "./editMeComp.css";
 import React from "react";
-import { InputCompUI } from "ui/input-text/Index";
-import { ButtonComp } from "ui/button/Index";
+import { InputCompUI } from "ui/input-text/InputText";
+import { ButtonComp } from "ui/button/Button";
 ButtonComp;
 InputCompUI;
 

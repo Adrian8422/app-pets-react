@@ -4,12 +4,12 @@ import {
   useSetChangesDataUser,
   useSeterReportUser,
   useSetReportsUser,
-} from "hooks";
+} from "hooks/atom";
 
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useSetRecoilState } from "recoil";
-import { ButtonComp } from "ui/button/Index";
+import { ButtonComp } from "ui/button/Button";
 import css from "./meData.css";
 
 function MeDataComp() {

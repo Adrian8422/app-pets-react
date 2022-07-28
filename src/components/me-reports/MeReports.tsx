@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { Card } from "components/card-pet/Index";
+import { Card } from "components/card-pet/CardPet";
 import {
   useReportesDelUser,
   useSeterReportUser,
   useSetReportsUser,
   useGetToken,
-} from "hooks";
+} from "hooks/atom";
 import { getMeReports } from "lib/api";
 function MeReportsComp() {
   const mePets = useReportesDelUser();

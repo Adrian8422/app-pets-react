@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { getEntriLogin } from "lib/api";
-import { useGetDataUser, useGetStatePage, useSetInDataSignIn } from "hooks";
+import {
+  useGetDataUser,
+  useGetStatePage,
+  useSetInDataSignIn,
+} from "hooks/atom";
 
 import css from "./signIn.css";
-import { ButtonComp } from "ui/button/Index";
-import { InputCompUI } from "ui/input-text/Index";
+import { ButtonComp } from "ui/button/Button";
+import { InputCompUI } from "ui/input-text/InputText";
 import { useNavigate } from "react-router-dom";
 function SignInComp(props) {
   const navigate = useNavigate();

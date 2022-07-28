@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import css from "./buttonMenu.css";
 import { Link } from "react-router-dom";
-import { useBurgerActive, useHeaderState } from "hooks";
+import { useBurgerActive, useHeaderState } from "hooks/atom";
 type PropsButtonMenu = {};
 
 function ButtonMenu(props) {

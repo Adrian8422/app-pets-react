@@ -1,17 +1,17 @@
-import { Layout } from "components/layout/Index";
-import { HomeUbication } from "pages/home-ubication/Index";
-import { HomeOficial } from "pages/home-oficial/Index";
-import { SignPage } from "pages/sign-up/Index";
-import { SignInPage } from "pages/sign-in/Index";
-import { MePage } from "pages/me/Index";
+import { Layout } from "components/layout/Layout";
+import { HomeUbication } from "pages/home-ubication/HomeUbication";
+import { HomeOficial } from "pages/home-oficial/HomeOficial";
+import { SignPage } from "pages/sign-up/SignUp";
+import { SignInPage } from "pages/sign-in/SignIn";
+import { MePage } from "pages/me/Me";
 import React from "react";
 
 import { Route, Routes } from "react-router-dom";
-import { EditMePage } from "pages/edit-me/Index";
-import { PageUpdatePassword } from "pages/update-password/Index";
-import { MeReportsPage } from "pages/me-reports/Index";
-import { CreateReportPage } from "pages/create-report/Index";
-import { UpdateReportPage } from "pages/update-report/Index";
+import { EditMePage } from "pages/edit-me/EditMe";
+import { PageUpdatePassword } from "pages/update-password/UpdatePass";
+import { MeReportsPage } from "pages/me-reports/MeReports";
+import { CreateReportPage } from "pages/create-report/CreateReportPage";
+import { UpdateReportPage } from "pages/update-report/UpdateReport";
 
 function AppRouter() {
   return (

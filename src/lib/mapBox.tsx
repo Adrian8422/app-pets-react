@@ -2,7 +2,7 @@ import React, { useState } from "react";
 
 import ReactMapboxGl, { Marker, Layer, Feature } from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
-import { useSetAlgolia, useSetCoordsRecoil } from "hooks";
+import { useSetAlgolia, useSetCoordsRecoil } from "hooks/atom";
 import css from "./mapbox.css";
 
 function MapboxComp() {

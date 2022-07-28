@@ -7,10 +7,10 @@ import {
   useSetEmail,
   useSetReport,
   useSetterReport,
-} from "hooks";
+} from "hooks/atom";
 import React, { useEffect, useState } from "react";
 import css from "./cardPet.css";
-import { ReportInfoComp } from "components/report-info/Index";
+import { ReportInfoComp } from "components/report-info/ReportInfo";
 import { deletedReport, getMeOneReport, getMeReports } from "lib/api";
 import { useNavigate } from "react-router-dom";
 

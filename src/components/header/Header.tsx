@@ -1,10 +1,10 @@
 import React from "react";
 import { ButtonMenu } from "components/buttonMenu/Index";
-import { Window } from "components/window/Index";
+import { Window } from "components/window/Window";
 
 import css from "./header.css";
 import { useNavigate } from "react-router-dom";
-import { useSetWindowHeaderState } from "hooks";
+import { useSetWindowHeaderState } from "hooks/atom";
 function HeaderComp(props) {
   const [windowState, setWindowState]: any = useSetWindowHeaderState();
   const navigate = useNavigate();

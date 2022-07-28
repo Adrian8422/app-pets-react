@@ -1,5 +1,5 @@
 import React from "react";
-import { UpdateReportComp } from "components/update-report/Index";
+import { UpdateReportComp } from "components/update-report/UpdateReport";
 import css from "./updateReport.css";
 function UpdateReportPage() {
   return (
