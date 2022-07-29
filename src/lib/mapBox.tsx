@@ -66,7 +66,7 @@ function MapboxComp() {
   };
 
   return (
-    <div className={mapboxStyleForm}>
+    <div style={mapboxStyleForm}>
       <Map
         style="mapbox://styles/mapbox/streets-v9"
         containerStyle={{
@@ -79,14 +79,14 @@ function MapboxComp() {
       ></Map>
       <div>
         <input
-          className={inputStyle}
+          style={inputStyle}
           type="text"
           onChange={handleChange}
           onKeyDown={handleChange}
           value={query}
           placeholder="example: Ezeiza"
         />
-        <button className={buttonStyle} onClick={setSearch}>
+        <button style={buttonStyle} onClick={setSearch}>
           Confirmar ubication
         </button>
       </div>

@@ -25,9 +25,9 @@ function DropzoneComp(props: PropsDropzone) {
 
   const [imagenComp, setImgComp] = useState({ imageURL: props.pictureURL });
   const { getRootProps, getInputProps } = useDropzone({
-    accept: {
-      "image/*": [],
-    },
+    accept: "image/*",
+    // "image/*": [],
+
     onDrop: (acceptedFiles) => {
       acceptedFiles.map((file) => {
         const reader = new FileReader();
@@ -44,7 +44,7 @@ function DropzoneComp(props: PropsDropzone) {
     <section className="container">
       <div {...getRootProps({ className: "dropzone" })}>
         <input {...getInputProps()} />
-        <p className={styleDropzoneImg}>Clicka aquí para buscar imagen</p>
+        <p style={styleDropzoneImg}>Clicka aquí para buscar imagen</p>
       </div>
       <aside>
         <img style={{ width: "115px" }} src={imagenComp.imageURL} />
