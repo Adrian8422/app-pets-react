@@ -97,7 +97,7 @@ export function useSetAlgolia() {
   return response;
 }
 
-///Hook save user email
+////Hook save user email
 
 const emailUser = atom({
   key: "email",
