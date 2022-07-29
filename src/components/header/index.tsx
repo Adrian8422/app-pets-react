@@ -1,5 +1,5 @@
 import React from "react";
-import { ButtonMenu } from "components/buttonMenu/Index";
+import { ButtonMenu } from "components/buttonMenu";
 import { Window } from "components/window";
 
 import css from "./header.css";

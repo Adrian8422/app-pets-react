@@ -7,8 +7,8 @@ import {
 } from "hooks/atom";
 
 import css from "./signIn.css";
-import { ButtonComp } from "ui/button/Button";
-import { InputCompUI } from "ui/input-text/InputText";
+import { ButtonComp } from "ui/button";
+import { InputCompUI } from "ui/input-text";
 import { useNavigate } from "react-router-dom";
 function SignInComp(props) {
   const navigate = useNavigate();
