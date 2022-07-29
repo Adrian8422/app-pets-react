@@ -1,4 +1,4 @@
-import { Layout } from "components/layout/Layout";
+import { Layout } from "components/layout";
 import { HomeUbication } from "pages/home-ubication/HomeUbication";
 import { HomeOficial } from "pages/home-oficial/HomeOficial";
 import { SignPage } from "pages/sign-up/SignUp";

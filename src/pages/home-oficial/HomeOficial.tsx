@@ -1,7 +1,7 @@
 import React from "react";
 import { useMeLatLng, useSetAlgolia } from "hooks/atom";
 import { PetsArround } from "components/pets-arround/PetsArround";
-import { Card } from "components/card-pet/CardPet";
+import { Card } from "components/card-pet";
 import css from "./homeOficial.css";
 function HomeOficial() {
   const results = useSetAlgolia();

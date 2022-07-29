@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card } from "components/card-pet/CardPet";
+import { Card } from "components/card-pet";
 import {
   useReportesDelUser,
   useSeterReportUser,

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card } from "components/card-pet/CardPet";
+import { Card } from "components/card-pet";
 type PropsPetsArround = {
   results: [];
 };

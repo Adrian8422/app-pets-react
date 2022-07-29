@@ -1,4 +1,4 @@
-import { CreateAndUpdateReport } from "components/comp-form-report/CreateAndUpdateReport";
+import { CreateAndUpdateReport } from "components/comp-form-report";
 import { useGetReport, useGetToken, useImgRecoilDropzone } from "hooks/atom";
 import { getMeOneReport } from "lib/api";
 import React, { useEffect, useState } from "react";

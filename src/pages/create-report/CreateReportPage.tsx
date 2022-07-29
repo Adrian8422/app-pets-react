@@ -1,4 +1,4 @@
-import { CreateReport } from "components/create-report/CreateReport";
+import { CreateReport } from "components/create-report";
 import React from "react";
 import css from "./createReport.css";
 function CreateReportPage() {

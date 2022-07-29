@@ -1,5 +1,5 @@
 import React from "react";
-import { EditMeComp } from "components/edit-me/EditMe";
+import { EditMeComp } from "components/edit-me";
 import css from "./editMe.css";
 
 function EditMePage() {

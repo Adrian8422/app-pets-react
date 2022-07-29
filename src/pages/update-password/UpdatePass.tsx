@@ -1,4 +1,4 @@
-import { ChangePasswordComp } from "components/change-password/ChangePass";
+import { ChangePasswordComp } from "components/change-password";
 import React from "react";
 import css from "./updatePass.css";
 function PageUpdatePassword() {
