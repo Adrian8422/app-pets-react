@@ -22,15 +22,19 @@ function MeReportsComp() {
 
   return (
     <div style={{ marginTop: "56px" }}>
-      {mePets.map((reporte) => (
-        <Card
-          pictureURL={reporte.pictureURL}
-          location={reporte.location}
-          name={reporte.namePet}
-          children="deleted"
-          id={reporte.id}
-        />
-      ))}
+      {mePets[0] ? (
+        mePets.map((reporte) => (
+          <Card
+            pictureURL={reporte.pictureURL}
+            location={reporte.location}
+            name={reporte.namePet}
+            children="deleted"
+            id={reporte.id}
+          />
+        ))
+      ) : (
+        <h3>No hay reportes</h3>
+      )}
     </div>
   );
 }

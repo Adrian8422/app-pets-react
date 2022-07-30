@@ -96,18 +96,22 @@ function Card(props: PropsCard) {
             </h3>
           ) : (
             <div className={css.containerEdits}>
-              <h3
+              <button
                 id={props.id}
                 onClick={handleDeleted}
                 style={{
-                  color: " red",
-                  fontSize: "17px",
-                  fontWeight: 200,
-                  filter: " drop-shadow(4px 3px 3px #a10d0d)",
+                  color: "red",
+                  fontSize: " 17px",
+                  fontWeight: " 200",
+                  filter: " drop-shadow(rgb(161, 13, 13) 4px 3px 3px)",
+                  fontFamily: "Mochiy Pop One",
+                  border: " transparent",
+                  borderRadius: " 20px",
+                  backgroundColor: " transparent",
                 }}
               >
                 Deleted
-              </h3>
+              </button>
               <img
                 id={props.id}
                 onClick={updateClick}
