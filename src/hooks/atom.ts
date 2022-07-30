@@ -59,12 +59,7 @@ const userLatLng = atom({
   default: {},
 });
 export const setValueLatLng = () => useRecoilState(userLatLng);
-// export function setValueLatLng(params) {
-//   const setValueInRecoil = useSetRecoilState(userLatLng);
-//   useEffect(() => {
-//     setValueInRecoil(params);
-//   }, [params]);
-// }
+
 export function useMeLatLng() {
   const response = useRecoilValue(userLatLng);
   return response;
@@ -76,29 +71,9 @@ const reportsCloseToMe = atom({
   default: [],
   effects_UNSTABLE: [persistAtom],
 });
-// const getReports = selector({
-//   key: "report",
-//   get: async ({ get }) => {
-//     const data = get(latLng);
-//     if (data) {
-//       const results = getLatAndLng(data);
-//       return results;
-//     } else {
-//       return [];
-//     }
-//   },
-// });
+
 export const useSetAlgolia = () => useRecoilState(reportsCloseToMe);
 export const useGetAlgoliaReports = () => useRecoilValue(reportsCloseToMe);
-// export function useSetAlgolia() {
-//   const datos = useMeLatLng();
-//   const setDataLatLng = useSetRecoilState(latLng);
-//   const response = useRecoilValue(getReports);
-//   useEffect(() => {
-//     setDataLatLng(datos);
-//   }, [datos]);
-//   return response;
-// }
 
 ////Hook save user email
 
