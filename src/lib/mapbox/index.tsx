@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-const { ReactMapboxGl } = require("react-mapbox-gl");
-//import ReactMapboxGl from "react-mapbox-gl";
+// const {ReactMapboxGl} = require("react-mapbox-gl");
+import ReactMapboxGl from "react-mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { useSetAlgolia, useSetCoordsRecoil } from "hooks/atom";
 import css from "./mapbox.css";
