@@ -27,9 +27,11 @@ function GetUbication() {
       console.log("error en ubication");
     }
     navigator.geolocation.getCurrentPosition(succesfull, error, options);
-    setTimeout(() => {
-      navigate("/pets-around");
-    }, 2000);
+    if (cords["lat"] && cords["lng"]) {
+      setTimeout(() => {
+        navigate("/pets-around");
+      }, 2000);
+    }
   };
 
   return (
