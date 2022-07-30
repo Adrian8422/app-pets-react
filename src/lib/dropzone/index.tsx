@@ -7,8 +7,6 @@ import {
 import React, { useState, useEffect } from "react";
 const { useDropzone } = require("react-dropzone");
 
-//import { useDropzone } from "React-dropzone";
-import css from "./dropzone.css";
 type PropsDropzone = {
   pictureURL?: string;
 };
