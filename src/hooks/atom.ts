@@ -56,46 +56,49 @@ export function useBurgerActive() {
 /// Atom MeLatLng
 const userLatLng = atom({
   key: "LatLng",
-  default: "",
+  default: {},
 });
-export function setValueLatLng(params) {
-  const setValueInRecoil = useSetRecoilState(userLatLng);
-  useEffect(() => {
-    setValueInRecoil(params);
-  }, [params]);
-}
+export const setValueLatLng = () => useRecoilState(userLatLng);
+// export function setValueLatLng(params) {
+//   const setValueInRecoil = useSetRecoilState(userLatLng);
+//   useEffect(() => {
+//     setValueInRecoil(params);
+//   }, [params]);
+// }
 export function useMeLatLng() {
   const response = useRecoilValue(userLatLng);
   return response;
 }
 
 //// custom Hook Reports close to me
-const latLng = atom({
+const reportsCloseToMe = atom({
   key: "lat&lng",
-  default: "",
+  default: [],
   effects_UNSTABLE: [persistAtom],
 });
-const getReports = selector({
-  key: "report",
-  get: async ({ get }) => {
-    const data = get(latLng);
-    if (data) {
-      const results = getLatAndLng(data);
-      return results;
-    } else {
-      return [];
-    }
-  },
-});
-export function useSetAlgolia() {
-  const datos = useMeLatLng();
-  const setDataLatLng = useSetRecoilState(latLng);
-  const response = useRecoilValue(getReports);
-  useEffect(() => {
-    setDataLatLng(datos);
-  }, [datos]);
-  return response;
-}
+// const getReports = selector({
+//   key: "report",
+//   get: async ({ get }) => {
+//     const data = get(latLng);
+//     if (data) {
+//       const results = getLatAndLng(data);
+//       return results;
+//     } else {
+//       return [];
+//     }
+//   },
+// });
+export const useSetAlgolia = () => useRecoilState(reportsCloseToMe);
+export const useGetAlgoliaReports = () => useRecoilValue(reportsCloseToMe);
+// export function useSetAlgolia() {
+//   const datos = useMeLatLng();
+//   const setDataLatLng = useSetRecoilState(latLng);
+//   const response = useRecoilValue(getReports);
+//   useEffect(() => {
+//     setDataLatLng(datos);
+//   }, [datos]);
+//   return response;
+// }
 
 ////Hook save user email
 

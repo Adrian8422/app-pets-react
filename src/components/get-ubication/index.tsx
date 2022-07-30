@@ -8,7 +8,7 @@ function GetUbication() {
   const navigate = useNavigate();
   const [cords, setCoords] = useState({});
 
-  const setHook = setValueLatLng(cords);
+  const [latLng, setLatLng] = setValueLatLng();
   const location = useMeLatLng();
 
   const handleUbication = () => {
@@ -22,16 +22,18 @@ function GetUbication() {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       });
+      setLatLng({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      });
     }
     function error(err) {
       console.log("error en ubication");
     }
     navigator.geolocation.getCurrentPosition(succesfull, error, options);
-    if (cords["lat"] && cords["lng"]) {
-      setTimeout(() => {
-        navigate("/pets-around");
-      }, 2000);
-    }
+    setTimeout(() => {
+      navigate("/pets-around");
+    }, 2000);
   };
 
   return (

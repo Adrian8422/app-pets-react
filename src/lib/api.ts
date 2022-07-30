@@ -5,21 +5,19 @@ const API_BASE_URL = "https://current-desafio-m-7.herokuapp.com";
 //// FETCH DE RESULTS CLOSE TO ME
 export async function getLatAndLng(data) {
   const res = await fetch(
-    API_BASE_URL +
-      "/reports-close-to?lat=" +
-      data["lat"] +
-      "&lng=" +
-      data["lng"],
+    API_BASE_URL + "/reports-close-to?lat=" + data.lat + "&lng=" + data.lng,
     {
+      method: "get",
       headers: {
         "content-type": "application/json",
       },
     }
   );
   const json = await res.json();
-  console.log(json);
+
   return json;
 }
+
 //// Function Sent Email to user owner pet
 export async function useSentEmail(email, name, message, cellphone) {
   const response = await fetch(API_BASE_URL + "/email", {

@@ -1,14 +1,26 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Card } from "components/card-pet";
-type PropsPetsArround = {
-  results: [];
-};
+import { getLatAndLng } from "lib/api";
+import { useGetAlgoliaReports, useMeLatLng, useSetAlgolia } from "hooks/atom";
+// type PropsPetsArround = {
+//   results: [];
+// };
 
-function PetsArround(props: PropsPetsArround) {
+function PetsArround() {
+  const meReports = useGetAlgoliaReports();
+  const latAndLng = useMeLatLng();
+  const [reports, setReportes] = useSetAlgolia();
+  useEffect(() => {
+    if (latAndLng) {
+      getLatAndLng(latAndLng).then((data) => {
+        setReportes(data);
+      });
+    }
+  }, [latAndLng]);
   return (
     <div style={{ marginTop: "60px" }}>
-      {props.results ? (
-        props.results.map((card) => (
+      {meReports[0] ? (
+        meReports.map((card) => (
           <Card
             key={card["objectID"]}
             name={card["name"]}
