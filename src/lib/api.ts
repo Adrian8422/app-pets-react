@@ -111,13 +111,13 @@ export async function updatePassword(
   const res = await fetch(API_BASE_URL + "/change-password", {
     method: "post",
     headers: {
-      authorization: `bearer ${data.token}`,
+      authorization: `bearer ${token}`,
       "content-type": "application/json",
     },
     body: JSON.stringify({
-      passwordOld: passwordActual,
-      passwordVerify: repetirPassword,
-      passwordNew: newPassword,
+      passwordOld: data.passwordActual,
+      passwordVerify: data.repetirPassword,
+      passwordNew: data.newPassword,
     }),
   });
   const json = await res.json();

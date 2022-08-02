@@ -4,10 +4,9 @@ import css from "./editMeComp.css";
 import React from "react";
 import { InputCompUI } from "ui/input-text";
 import { ButtonComp } from "ui/button";
-ButtonComp;
-InputCompUI;
-
+import { useNavigate } from "react-router-dom";
 function EditMeComp() {
+  const navigate = useNavigate();
   const token = useGetToken();
   const [meData, setMeData] = useUpdateMeData();
   const handleSubmit = async (e) => {
@@ -18,6 +17,10 @@ function EditMeComp() {
     if (changesData) {
       setMeData({ email, name });
       alert("cambios realizados");
+    }
+
+    if (setMeData && token) {
+      navigate("/me");
     }
   };
   return (

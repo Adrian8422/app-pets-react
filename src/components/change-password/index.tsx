@@ -4,8 +4,10 @@ import css from "./changePass.css";
 import React from "react";
 import { ButtonComp } from "ui/button";
 import { InputCompUI } from "ui/input-text";
+import { useNavigate } from "react-router-dom";
 
 function ChangePasswordComp() {
+  const navigate = useNavigate();
   const token = useGetToken();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +23,9 @@ function ChangePasswordComp() {
       }
     } else {
       alert("no coinciden las contraseñas");
+    }
+    if (newPassword) {
+      navigate("/me");
     }
   };
   return (
