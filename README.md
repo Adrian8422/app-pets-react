@@ -6,6 +6,7 @@ Enlace de la AppDemo => https://app-pets-9a7d2.firebaseapp.com/
 TECNOLOGÍAS:
 
 -FrontEnd: React-Recoil - ReactMapbox - ReactDropzone
+
 -Backend: Node.js - Express - Algolia - Nodemailer - PostgreSQL
 
 
