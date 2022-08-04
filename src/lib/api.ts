@@ -27,9 +27,9 @@ export async function useSentEmail(email, name, message, cellphone) {
     },
     body: JSON.stringify({
       emailUser: email["email"],
-      name: name,
-      message: message,
-      cellphone: cellphone,
+      name: `${name} vio a tu mascota`,
+      message: `Lo vio en:${message}`,
+      cellphone: `Su numero de celular es: ${cellphone}`,
     }),
   });
   const json = await response.json();
