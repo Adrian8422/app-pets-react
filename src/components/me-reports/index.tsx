@@ -25,6 +25,7 @@ function MeReportsComp() {
       {mePets[0] ? (
         mePets.map((reporte) => (
           <Card
+            key={reporte.id}
             pictureURL={reporte.pictureURL}
             location={reporte.location}
             name={reporte.namePet}

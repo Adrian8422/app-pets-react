@@ -21,9 +21,8 @@ function ButtonMenu(props) {
   };
 
   return (
-    <div>
+    <div onClick={handleClick}>
       <div
-        onClick={handleClick}
         id={currentDate ? inactive : inactive}
         className={currentDate ? active : null}
       >

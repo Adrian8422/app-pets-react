@@ -13,14 +13,16 @@ function EditMeComp() {
     e.preventDefault();
     const email = e.target.email.value;
     const name = e.target.name.value;
-    const changesData = await updateMeDate(email, name, token);
-    if (changesData) {
-      setMeData({ email, name });
-      alert("cambios realizados");
-    }
+    if (email && name) {
+      const changesData = await updateMeDate(email, name, token);
+      if (changesData) {
+        setMeData({ email, name });
+        alert("cambios realizados");
 
-    if (setMeData && token) {
-      navigate("/me");
+        navigate("/me");
+      }
+    } else {
+      alert("rellena bien todos los campos");
     }
   };
   return (

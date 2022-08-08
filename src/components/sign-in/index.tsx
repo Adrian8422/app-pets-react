@@ -28,18 +28,21 @@ function SignInComp(props) {
       ///seteo data en stateAtom si ya se realizo la funcion del fetch getEntriLogin
 
       if (dataDelUser) {
-        const datosForSaveFromFetch = {
-          name: dataDelUser.user.name,
-          email: dataDelUser.user.email,
-          token: dataDelUser.token,
-        };
+        if (dataDelUser.token) {
+          const datosForSaveFromFetch = {
+            name: dataDelUser.user.name,
+            email: dataDelUser.user.email,
+            token: dataDelUser.token,
+          };
 
-        datosAGuardar(datosForSaveFromFetch);
-        alert("Iniciaste correctamente :D");
-        navigate(dataProximaPage);
+          datosAGuardar(datosForSaveFromFetch);
+          alert("Iniciaste correctamente :D");
+          navigate(dataProximaPage);
+        } else {
+          alert("usuario no registrado");
+          navigate("/sign-up");
+        }
       }
-    } else {
-      alert("llena bien los datos");
     }
   }
 
