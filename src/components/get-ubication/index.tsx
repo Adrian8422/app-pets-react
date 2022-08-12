@@ -31,10 +31,15 @@ function GetUbication() {
       console.log("error en ubication");
     }
     navigator.geolocation.getCurrentPosition(succesfull, error, options);
-    setTimeout(() => {
-      navigate("/pets-around");
-    }, 2000);
   };
+
+  if (latLng["lat"] && latLng["lng"]) {
+    if (latLng) {
+      setTimeout(() => {
+        navigate("/pets-around");
+      }, 2000);
+    }
+  }
 
   return (
     <div>
