@@ -57,6 +57,7 @@ export function useBurgerActive() {
 const userLatLng = atom({
   key: "LatLng",
   default: {},
+  effects_UNSTABLE: [persistAtom],
 });
 export const setValueLatLng = () => useRecoilState(userLatLng);
 

@@ -26,20 +26,21 @@ function GetUbication() {
         lat: position.coords.latitude,
         lng: position.coords.longitude,
       });
+      window.localStorage.setItem("coordenadasUser", JSON.stringify(latLng));
     }
     function error(err) {
       console.log("error en ubication");
     }
     navigator.geolocation.getCurrentPosition(succesfull, error, options);
-  };
 
-  if (latLng["lat"] && latLng["lng"]) {
-    if (latLng) {
-      setTimeout(() => {
-        navigate("/pets-around");
-      }, 2000);
+    if (latLng["lat"] && latLng["lng"]) {
+      if (latLng) {
+        setTimeout(() => {
+          navigate("/pets-around");
+        }, 2000);
+      }
     }
-  }
+  };
 
   return (
     <div>

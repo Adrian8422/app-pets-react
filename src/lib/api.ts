@@ -8,8 +8,10 @@ export async function getLatAndLng(data) {
     API_BASE_URL + "/reports-close-to?lat=" + data.lat + "&lng=" + data.lng,
     {
       method: "get",
+      mode: "cors",
       headers: {
         "content-type": "application/json",
+        "Access-Control-Allow-Origin": "*",
       },
     }
   );

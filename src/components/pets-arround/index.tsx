@@ -2,17 +2,18 @@ import React, { useEffect } from "react";
 import { Card } from "components/card-pet";
 import { getLatAndLng } from "lib/api";
 import { useGetAlgoliaReports, useMeLatLng, useSetAlgolia } from "hooks/atom";
-// type PropsPetsArround = {
-//   results: [];
-// };
 
 function PetsArround() {
+  const coordsLocalStorageString =
+    window.localStorage.getItem("coordenadasUser");
+
+  const latLngUserLocalSt = JSON.parse(coordsLocalStorageString);
   const meReports = useGetAlgoliaReports();
   const latAndLng = useMeLatLng();
   const [reports, setReportes] = useSetAlgolia();
   useEffect(() => {
     if (latAndLng) {
-      getLatAndLng(latAndLng).then((data) => {
+      getLatAndLng(latLngUserLocalSt).then((data) => {
         setReportes(data);
       });
     }
