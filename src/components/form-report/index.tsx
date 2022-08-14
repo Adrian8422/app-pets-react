@@ -33,6 +33,9 @@ function CreateAndUpdateReport(props) {
     const lng = coords.lat;
     const location = coords.location;
     const pictureURL = imgDropzone["imageZone"];
+    if (!namePet && !lat && !lng && !location && !pictureURL) {
+      alert("lléna todos los campos");
+    }
 
     if (namePet && lat && lng && location && pictureURL) {
       createReport(namePet, location, lat, lng, pictureURL, token);
@@ -45,8 +48,8 @@ function CreateAndUpdateReport(props) {
         setTimeout(() => {
           if (setNewAllReports) {
             alert("reporte creado con éxito");
-            navigate("/me-reports");
           }
+          navigate("/me-reports");
         }, 3000);
       }
     }
@@ -63,6 +66,10 @@ function CreateAndUpdateReport(props) {
     const lng = coords.lng;
     const location = coords.location;
     const pictureURL = imgDropzone["imageZone"];
+
+    if (!namePet && !lat && !lng && !location && !pictureURL) {
+      alert("lléna todos los campos");
+    }
 
     if (idReport && namePet && lat && lng && location && pictureURL) {
       updateReportInDB(
@@ -84,8 +91,8 @@ function CreateAndUpdateReport(props) {
         setTimeout(() => {
           if (setNewAllReports) {
             alert("reporte modificado con éxito");
-            navigate("/me-reports");
           }
+          navigate("/me-reports");
         }, 3000);
       }
     }

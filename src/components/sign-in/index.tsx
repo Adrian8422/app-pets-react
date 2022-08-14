@@ -21,6 +21,15 @@ function SignInComp(props) {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
+    if (!email) {
+      alert("falta ingresar su email");
+    }
+    if (!password) {
+      alert("ingrese su contraseña correctamente");
+    }
+    if (!email && !password) {
+      alert("llena todos los campos correctamente");
+    }
     if (email && password) {
       ////realizo el fetch para que traiga los datosAndToken
       const dataDelUser = await getEntriLogin(email, password);

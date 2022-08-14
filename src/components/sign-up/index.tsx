@@ -15,12 +15,27 @@ function SignUpComp(props) {
     const nombre = e.target.nombre.value;
     const email = e.target.email.value;
     const password = e.target.password.value;
-    const fetch = setDataSignUp({ nombre, email, password });
-    if (fetch) {
-      saveSignUp({ nombre, email, password });
+    if (!nombre) {
+      alert("falta completar el campo nombre");
+    }
+    if (!email) {
+      alert("falta completar el campo email");
+    }
+    if (!password) {
+      alert("escriba alguna contraseña para poder registrarse");
+    }
+    if (!nombre && !email && !password) {
+      alert("llena todos los campos correctamente");
+    }
 
-      alert("usuario creado correctamente");
-      navigate("/sign-in"), { replace: true };
+    if (nombre && email && password) {
+      const fetch = setDataSignUp({ nombre, email, password });
+      if (fetch) {
+        saveSignUp({ nombre, email, password });
+
+        alert("usuario creado correctamente");
+        navigate("/sign-in"), { replace: true };
+      }
     }
   }
 
