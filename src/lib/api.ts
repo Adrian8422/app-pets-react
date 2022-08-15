@@ -90,7 +90,7 @@ export async function getMeDataUser(token) {
 
 export async function updateMeDate(email, name, token) {
   const res = await fetch(API_BASE_URL + "/me/modified", {
-    method: "put",
+    method: "PUT",
     headers: {
       authorization: `bearer ${token}`,
       "content-type": "application/json",
@@ -98,6 +98,7 @@ export async function updateMeDate(email, name, token) {
     body: JSON.stringify({ email, name }),
   });
   const json = await res.json();
+  console.log("json fetch", json);
   return json;
 }
 

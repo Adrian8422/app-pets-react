@@ -5,10 +5,12 @@ type PropsInput = {
   name: string;
   value?: any;
   placeholder?: string;
+  defaultValue?: string;
 };
 function InputCompUI(props: PropsInput) {
   return (
     <input
+      defaultValue={props.defaultValue}
       className={css.input}
       type={props.type}
       name={props.name}

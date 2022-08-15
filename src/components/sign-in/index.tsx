@@ -4,6 +4,7 @@ import {
   useGetDataUser,
   useGetStatePage,
   useSetInDataSignIn,
+  useSetterRealToken,
 } from "hooks/atom";
 
 import css from "./signIn.css";
@@ -11,6 +12,7 @@ import { ButtonComp } from "ui/button";
 import { InputCompUI } from "ui/input-text";
 import { useNavigate } from "react-router-dom";
 function SignInComp(props) {
+  const [token, setterToken] = useSetterRealToken();
   const navigate = useNavigate();
   const dataProximaPage = useGetStatePage();
   const datosAGuardar = useSetInDataSignIn();
@@ -43,6 +45,8 @@ function SignInComp(props) {
             email: dataDelUser.user.email,
             token: dataDelUser.token,
           };
+
+          setterToken(dataDelUser.token);
 
           datosAGuardar(datosForSaveFromFetch);
           alert("Iniciaste correctamente :D");

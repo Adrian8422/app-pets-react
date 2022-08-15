@@ -14,18 +14,23 @@ function ChangePasswordComp() {
     const passwordActual = e.target.currentPass.value;
     const repitaPassword = e.target.repeatPass.value;
     const newPassword = e.target.newPass.value;
-    if (passwordActual == repitaPassword) {
-      if (newPassword) {
-        updatePassword(token, passwordActual, repitaPassword, newPassword);
-        alert("cambios realizados con éxito");
-      } else {
-        alert("ocurrió un error");
-      }
-    } else {
-      alert("no coinciden las contraseñas");
+    if (!passwordActual && !repitaPassword && !newPassword) {
+      alert("completa los campos para ejecutar los cambios");
     }
-    if (newPassword) {
-      navigate("/me");
+    if (passwordActual && repitaPassword && newPassword) {
+      if (passwordActual == repitaPassword) {
+        if (newPassword) {
+          updatePassword(token, passwordActual, repitaPassword, newPassword);
+          alert("cambios realizados con éxito");
+        } else {
+          alert("ocurrió un error");
+        }
+      } else {
+        alert("no coinciden las contraseñas");
+      }
+      if (newPassword) {
+        navigate("/me");
+      }
     }
   };
   return (

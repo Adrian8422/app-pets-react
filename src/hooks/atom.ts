@@ -121,17 +121,26 @@ const dataSignin: RecoilState<{ [key: string]: string }> = atom({
   },
   effects_UNSTABLE: [persistAtom],
 });
-const token = selector({
-  key: "token",
-  get: ({ get }) => {
-    const data = get(dataSignin);
-    const token = data.token;
-    if (token) {
-      return token;
-    } else {
-    }
-  },
+
+//// hook getToken
+const csToken = atom({
+  key: "realToken",
+  default: "",
+  effects_UNSTABLE: [persistAtom],
 });
+export const useSetterRealToken = () => useRecoilState(csToken);
+export const useGetToken = () => useRecoilValue(csToken);
+// const token = selector({
+//   key: "token",
+//   get: ({ get }) => {
+//     const data = get(dataSignin);
+//     const token = data.token;
+//     if (token) {
+//       return token;
+//     } else {
+//     }
+//   },
+// });
 
 ////Hook setter signIn data user
 
@@ -142,9 +151,6 @@ export const useSetChangesDataUser = () => useRecoilState(dataSignin);
 /// Seter User active or nou
 export const useSetActiveUser = () => useSetRecoilState(dataSignin);
 export const useGetActiveUser = () => useRecoilValue(dataSignin);
-
-//// hook getToken
-export const useGetToken = () => useRecoilValue(token);
 
 //// hook update me data
 
