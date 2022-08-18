@@ -44,6 +44,7 @@ function MapboxComp() {
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
+    width: "288px",
   };
   const buttonStyle: any = {
     minWidth: "169px",
@@ -69,7 +70,7 @@ function MapboxComp() {
         style="mapbox://styles/mapbox/streets-v9"
         containerStyle={{
           height: " 30vh",
-          width: "309px",
+          width: "278px",
           borderRadius: "24px",
         }}
         center={lat && lng ? [lat, lng] : [-58.6207062, -34.8055484]}

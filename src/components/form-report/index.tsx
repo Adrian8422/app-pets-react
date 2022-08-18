@@ -26,7 +26,7 @@ function CreateAndUpdateReport(props) {
   const imgDropzone = useImgRecoilDropzone();
   const [newAllReports, setNewAllReports] = useSetReportsUser();
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const namePet = e.target.nombre.value;
     const lat = coords.lng;
@@ -38,11 +38,11 @@ function CreateAndUpdateReport(props) {
     }
 
     if (namePet && lat && lng && location && pictureURL) {
-      createReport(namePet, location, lat, lng, pictureURL, token);
+      await createReport(namePet, location, lat, lng, pictureURL, token);
       ///una ves que creo un nuevo reporte actualizo el atomo state para que tenga otra ves los reportes actuales con el mismo agregado
 
       if (createReport && petsUser) {
-        getMeReports(token).then((data) => {
+        await getMeReports(token).then((data) => {
           setNewAllReports(data);
         });
         setTimeout(() => {
