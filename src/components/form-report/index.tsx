@@ -39,7 +39,7 @@ function CreateAndUpdateReport(props) {
 
     if (namePet && lat && lng && location && pictureURL) {
       await createReport(namePet, location, lat, lng, pictureURL, token);
-      ///una ves que creo un nuevo reporte actualizo el atomo state para que tenga otra ves los reportes actuales con el mismo agregado
+      //una ves que creo un nuevo reporte actualizo el atomo state para que tenga otra ves los reportes actuales con el mismo agregado
 
       if (createReport && petsUser) {
         await getMeReports(token).then((data) => {
