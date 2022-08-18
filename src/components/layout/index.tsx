@@ -6,6 +6,7 @@ function Layout() {
   return (
     <div>
       <HeaderComp />
+
       <Outlet />
     </div>
   );

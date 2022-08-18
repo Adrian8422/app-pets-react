@@ -42,7 +42,7 @@ function CreateAndUpdateReport(props) {
       //una ves que creo un nuevo reporte actualizo el atomo state para que tenga otra ves los reportes actuales con el mismo agregado
 
       if (createReport && petsUser) {
-        await getMeReports(token).then((data) => {
+        getMeReports(token).then((data) => {
           setNewAllReports(data);
         });
         setTimeout(() => {
@@ -50,7 +50,7 @@ function CreateAndUpdateReport(props) {
             alert("reporte creado con éxito");
           }
           navigate("/me-reports");
-        }, 3000);
+        }, 2000);
       }
     }
   };
