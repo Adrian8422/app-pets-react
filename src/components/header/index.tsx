@@ -8,9 +8,16 @@ import { useSetWindowHeaderState } from "hooks/atom";
 function HeaderComp(props) {
   const [windowState, setWindowState]: any = useSetWindowHeaderState();
   const navigate = useNavigate();
+  const coordsLocalStorageString =
+    window.localStorage.getItem("coordenadasUser");
   const handleToNavigate = () => {
     setWindowState(false);
-    navigate("/");
+    if (!coordsLocalStorageString) {
+      navigate("/");
+    }
+    if (coordsLocalStorageString) {
+      navigate("/pets-around");
+    }
   };
   return (
     <div>
