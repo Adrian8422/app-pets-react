@@ -46,7 +46,7 @@ function GetUbication() {
     <div>
       <div className={css.containerPage}>
         <h1>Mascotas perdidas cerca tuyo</h1>
-        <h2>
+        <h2 className={css.h2}>
           Para ver las mascotas reportadas cerca tuyo necesitamos permiso para
           conocer tu ubicación.
         </h2>

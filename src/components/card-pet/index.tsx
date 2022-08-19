@@ -89,7 +89,10 @@ function Card(props: PropsCard) {
         </div>
         <div>
           <h2>{props.name}</h2>
-          <h3>{props.location}</h3>
+          <div className={css.h3Ubication}>
+            <img style={{ width: "27px" }} src="/src/assets/ubication.png" />
+            <h3 style={{ fontSize: "15px" }}>{props.location}</h3>
+          </div>
           {pageReportInfo ? (
             <h3 className={css.subtitleReport} onClick={reportInfo}>
               {props.children}

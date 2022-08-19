@@ -3,7 +3,13 @@
   flex-direction: column;
   align-items: center;
   height: 685px;
-  padding: 96px 96px 0 96px;
+  justify-content: center;
+}
+.h2 {
+  font-size: 18px;
+  padding: 2px;
+  max-width: 800px;
+  color: #232121;
 }
 .button {
   width: 169px;
