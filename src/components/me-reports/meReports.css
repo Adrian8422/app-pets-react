@@ -1,0 +1,6 @@
+.root {
+  margin-top: 56px;
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 56px;
+}

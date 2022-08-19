@@ -12,7 +12,7 @@ function UpdateReportComp() {
       Update report
       <CreateAndUpdateReport
         pictureCurrentReport={reporte["pictureURL"]}
-        placeholder={reporte["namePet"]}
+        defaultValue={reporte["namePet"]}
       />
     </div>
   );

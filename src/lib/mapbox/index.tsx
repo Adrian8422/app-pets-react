@@ -85,9 +85,9 @@ function MapboxComp() {
           value={query}
           placeholder="example: Ezeiza"
         />
-        <button style={buttonStyle} onClick={setSearch}>
+        <div style={buttonStyle} onClick={setSearch}>
           Confirmar ubication
-        </button>
+        </div>
       </div>
       ;
     </div>

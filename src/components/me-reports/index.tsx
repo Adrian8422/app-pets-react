@@ -7,6 +7,7 @@ import {
   useGetToken,
 } from "hooks/atom";
 import { getMeReports } from "lib/api";
+import css from "./meReports.css";
 function MeReportsComp() {
   const mePets = useReportesDelUser();
 
@@ -21,7 +22,7 @@ function MeReportsComp() {
   }, [token]);
 
   return (
-    <div style={{ marginTop: "56px" }}>
+    <div className={css.root}>
       {mePets[0] ? (
         mePets.map((reporte) => (
           <Card

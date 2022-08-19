@@ -50,7 +50,7 @@ function CreateAndUpdateReport(props) {
             alert("reporte creado con éxito");
           }
           navigate("/me-reports");
-        }, 2000);
+        }, 1000);
       }
     }
   };
@@ -119,7 +119,7 @@ function CreateAndUpdateReport(props) {
         <InputCompUI
           name="changeNombre"
           type="text"
-          placeholder={props.placeholder}
+          defaultValue={props.defaultValue}
         />
         <div>
           <DropzoneComp pictureURL={props.pictureCurrentReport} />
