@@ -43,14 +43,18 @@ function CreateAndUpdateReport(props) {
 
       if (createReport && petsUser) {
         getMeReports(token).then((data) => {
-          setNewAllReports(data);
-        });
-        setTimeout(() => {
-          if (setNewAllReports) {
-            alert("reporte creado con éxito");
+          if (data) {
+            setNewAllReports(data);
+            alert("Reporte creado con éxito");
+            navigate("/me-reports");
           }
-          navigate("/me-reports");
-        }, 1000);
+        });
+        // setTimeout(() => {
+        //   if (setNewAllReports) {
+        //     alert("reporte creado con éxito");
+        //   }
+        //   navigate("/me-reports");
+        // }, 1000);
       }
     }
   };
