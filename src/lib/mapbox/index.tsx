@@ -47,13 +47,18 @@ function MapboxComp() {
     width: "288px",
   };
   const buttonStyle: any = {
-    minWidth: "169px",
-    height: "28px",
+    display: "flex",
+    flexDirection: "column",
+    textAlign: "center",
+    justifyContent: "center",
     borderRadius: "7px",
     border: "transparent",
     fontFamily: "Mochiy Pop One",
-    boxShadow: "5px 3px 6px 1px #162626",
-    backgroundColor: "#cb4b4bc2",
+    boxShadow: " rgb(22 38 38) 5px 3px 6px 1px",
+    backgroundColor: "rgba(203, 75, 75, 0.76)",
+    fontSize: "14px",
+    height: "33px",
+    marginTop: " 8px",
   };
   const inputStyle: any = {
     height: "27px",

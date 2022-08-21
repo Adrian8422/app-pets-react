@@ -8,6 +8,7 @@ import {
   useGetToken,
   useImgRecoilDropzone,
   useMapboxCoords,
+  useGetDataUser,
 } from "hooks/atom";
 import { createReport, getMeReports, updateReportInDB } from "lib/api";
 import { useNavigate, useParams } from "react-router-dom";
@@ -29,32 +30,28 @@ function CreateAndUpdateReport(props) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const namePet = e.target.nombre.value;
+    const location = coords.location;
     const lat = coords.lng;
     const lng = coords.lat;
-    const location = coords.location;
     const pictureURL = imgDropzone["imageZone"];
     if (!namePet && !lat && !lng && !location && !pictureURL) {
       alert("lléna todos los campos");
     }
 
     if (namePet && lat && lng && location && pictureURL) {
-      await createReport(namePet, location, lat, lng, pictureURL, token);
+      createReport(token, { namePet, location, lat, lng, pictureURL });
       //una ves que creo un nuevo reporte actualizo el atomo state para que tenga otra ves los reportes actuales con el mismo agregado
 
       if (createReport && petsUser) {
         getMeReports(token).then((data) => {
-          if (data) {
-            setNewAllReports(data);
-            alert("Reporte creado con éxito");
-            navigate("/me-reports");
-          }
+          setNewAllReports(data);
         });
-        // setTimeout(() => {
-        //   if (setNewAllReports) {
-        //     alert("reporte creado con éxito");
-        //   }
-        //   navigate("/me-reports");
-        // }, 1000);
+        setTimeout(() => {
+          if (setNewAllReports) {
+            alert("reporte creado con éxito");
+          }
+          navigate("/me-reports");
+        }, 3000);
       }
     }
   };

@@ -109,7 +109,7 @@ const signUpData: RecoilState<{ [key: string]: string }> = atom({
 export const useSetDataSignUp: any = () => useSetRecoilState(signUpData);
 export const getDataSignUp = () => useRecoilValue(signUpData);
 
-/// Hook get token
+/// Hook dataSIgnin
 const dataSignin: RecoilState<{ [key: string]: string }> = atom({
   key: "dataSignin",
   default: {
@@ -122,6 +122,9 @@ const dataSignin: RecoilState<{ [key: string]: string }> = atom({
   effects_UNSTABLE: [persistAtom],
 });
 
+export const useSetInDataSignIn = () => useSetRecoilState(dataSignin);
+export const useGetDataUser = () => useRecoilValue(dataSignin);
+export const useSetChangesDataUser = () => useRecoilState(dataSignin);
 //// hook getToken
 const csToken = atom({
   key: "realToken",
@@ -130,23 +133,8 @@ const csToken = atom({
 });
 export const useSetterRealToken = () => useRecoilState(csToken);
 export const useGetToken = () => useRecoilValue(csToken);
-// const token = selector({
-//   key: "token",
-//   get: ({ get }) => {
-//     const data = get(dataSignin);
-//     const token = data.token;
-//     if (token) {
-//       return token;
-//     } else {
-//     }
-//   },
-// });
 
 ////Hook setter signIn data user
-
-export const useSetInDataSignIn = () => useSetRecoilState(dataSignin);
-export const useGetDataUser = () => useRecoilValue(dataSignin);
-export const useSetChangesDataUser = () => useRecoilState(dataSignin);
 
 /// Seter User active or nou
 export const useSetActiveUser = () => useSetRecoilState(dataSignin);

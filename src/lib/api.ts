@@ -157,17 +157,11 @@ export async function deletedReport(id, token) {
 
 //// Create report Pet
 
-export async function createReport(
-  namePet,
-  location,
-  lat,
-  lng,
-  pictureURL,
-  token
-) {
-  console.log(namePet, location, lat, lng, pictureURL, token);
+export async function createReport(token, data) {
+  const { namePet, location, lat, lng, pictureURL } = data;
+
   const res = await fetch(API_BASE_URL + "/report-pet", {
-    method: "post",
+    method: "POST",
     headers: {
       "content-type": "application/json",
       authorization: `bearer ${token}`,
@@ -181,7 +175,8 @@ export async function createReport(
     }),
   });
   const json = await res.json();
-  console.log(json);
+  console.log("reporte creado", json);
+  return json;
 }
 
 //// Update report
