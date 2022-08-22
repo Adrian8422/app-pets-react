@@ -17,8 +17,9 @@ function SignInComp(props) {
   const dataProximaPage = useGetStatePage();
   const datosAGuardar = useSetInDataSignIn();
   const datosEnSigninRecoil = useGetDataUser();
-
   const datosAndToken = useGetDataUser();
+  const passString = window.localStorage.getItem("pass");
+  const PassUserLocalSt = JSON.parse(passString);
   async function handleSubmit(e) {
     e.preventDefault();
     const email = e.target.email.value;
@@ -32,7 +33,8 @@ function SignInComp(props) {
     if (!email && !password) {
       alert("llena todos los campos correctamente");
     }
-    if (email && password) {
+
+    if (email && password == PassUserLocalSt) {
       ////realizo el fetch para que traiga los datosAndToken
       const dataDelUser = await getEntriLogin(email, password);
 
@@ -56,6 +58,8 @@ function SignInComp(props) {
           navigate("/sign-up");
         }
       }
+    } else if (email && password !== PassUserLocalSt) {
+      alert("contraseña incorrecta, intenta nuevamente");
     }
   }
 

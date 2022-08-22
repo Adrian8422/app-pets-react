@@ -32,6 +32,7 @@ function SignUpComp(props) {
       const fetch = setDataSignUp({ nombre, email, password });
       if (fetch) {
         saveSignUp({ nombre, email, password });
+        window.localStorage.setItem("pass", JSON.stringify(password));
 
         alert("usuario creado correctamente");
         navigate("/sign-in"), { replace: true };
