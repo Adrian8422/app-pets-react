@@ -63,8 +63,8 @@ function CreateAndUpdateReport(props) {
 
     const namePet = e.target.changeNombre.value;
     const idReport = params.id;
-    const lat = coords.lat;
-    const lng = coords.lng;
+    const lat = coords.lng;
+    const lng = coords.lat;
     const location = coords.location;
     const pictureURL = imgDropzone["imageZone"];
 
