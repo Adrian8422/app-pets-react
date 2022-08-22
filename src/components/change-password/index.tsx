@@ -21,6 +21,7 @@ function ChangePasswordComp() {
       if (passwordActual == repitaPassword) {
         if (newPassword) {
           updatePassword(token, passwordActual, repitaPassword, newPassword);
+          window.localStorage.setItem("pass", JSON.stringify(newPassword));
           alert("cambios realizados con éxito");
         } else {
           alert("ocurrió un error");
