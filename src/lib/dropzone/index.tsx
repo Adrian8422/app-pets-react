@@ -18,7 +18,9 @@ function DropzoneComp(props: PropsDropzone) {
     padding: "9px",
     backgroundColor: " darkseagreen",
     boxShadow: "2px 2px 5px 1px",
+    cursor: "pointer",
   };
+
   const imagenDropzoneRecoil: any = useImgRecoilDropzone();
   const [files, setFiles] = useSetImgRecoilDrop();
 

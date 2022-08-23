@@ -111,6 +111,7 @@ function Card(props: PropsCard) {
                   border: " transparent",
                   borderRadius: " 20px",
                   backgroundColor: " transparent",
+                  cursor: "pointer",
                 }}
               >
                 Deleted
@@ -122,6 +123,7 @@ function Card(props: PropsCard) {
                   width: "30px",
                   height: "30px",
                   filter: "drop-shadow(2px 6px 4px black)",
+                  cursor: "pointer",
                 }}
                 src="./src/assets/pencil.png"
                 alt=""

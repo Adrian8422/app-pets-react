@@ -5,4 +5,6 @@
   border: transparent;
   font-family: "Mochiy Pop One";
   font-size: 13px;
+  box-sizing: 1px 1px 1px 1px;
+  box-shadow: rgb(22 38 38) 5px 3px 6px 1px;
 }

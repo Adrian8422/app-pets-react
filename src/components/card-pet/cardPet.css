@@ -37,6 +37,7 @@
   font-weight: initial;
   color: #0603b7;
   filter: drop-shadow(2px 1px 3px blue);
+  cursor: pointer;
 }
 .containerPropsCard {
   display: flex;

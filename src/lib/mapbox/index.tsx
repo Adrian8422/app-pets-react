@@ -59,6 +59,7 @@ function MapboxComp() {
     fontSize: "14px",
     height: "33px",
     marginTop: " 8px",
+    cursor: "pointer",
   };
   const inputStyle: any = {
     height: "27px",
@@ -67,6 +68,12 @@ function MapboxComp() {
     border: "transparent",
     fontFamily: "Mochiy Pop One",
     fontSize: "13px",
+    boxShadow: " rgb(22 38 38) 5px 3px 6px 1px",
+  };
+  const containerButtonInput: any = {
+    display: "flex",
+    flexDirection: "column",
+    height: "81px",
   };
 
   return (
@@ -81,7 +88,7 @@ function MapboxComp() {
         center={lat && lng ? [lat, lng] : [-58.6207062, -34.8055484]}
         zoom={[14]}
       ></Map>
-      <div>
+      <div style={containerButtonInput}>
         <input
           style={inputStyle}
           type="text"
@@ -94,7 +101,6 @@ function MapboxComp() {
           Confirmar ubication
         </div>
       </div>
-      ;
     </div>
   );
 }
