@@ -23,6 +23,7 @@ function HeaderComp(props) {
     <div>
       <header className={css.root}>
         <img
+          alt="pet-icon"
           onClick={handleToNavigate}
           style={{ width: "43px", filter: "drop-shadow(4px 3px 4px #000)" }}
           src="./src/assets/petShadow.png"
