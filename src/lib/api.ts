@@ -1,6 +1,6 @@
 /// In mode dev ↓
 // const API_BASE_URL = "http://localhost:3002";
-const API_BASE_URL = "https://app-missing-pets-beta.onrender.com/";
+const API_BASE_URL = "https://app-missing-pets-beta.onrender.com";
 
 //// FETCH DE RESULTS CLOSE TO ME
 export async function getLatAndLng(data) {
